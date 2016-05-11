@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../WeQuestion.Data/WeQuestion.Data.csproj",
+      "bin": {
+        "assembly": "../../WeQuestion.Data/obj/{configuration}/WeQuestion.Data.dll",
+        "pdb": "../../WeQuestion.Data/obj/{configuration}/WeQuestion.Data.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "6.1.3"
+      }
+    }
+  }
+}
