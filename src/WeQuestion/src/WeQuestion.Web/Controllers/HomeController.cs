@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Mvc;
-using WeQuestion.Data;
+using WeQuestion.Domain.Repository;
 
 namespace WeQuestion.Web.Controllers
 {
@@ -13,7 +13,9 @@ namespace WeQuestion.Web.Controllers
             //    dbContext.Users.Add(newUser);
             //    dbContext.SaveChanges();
             //}
-            return View();
+            var repo = new GetAllPolls();
+            var polls = repo.Get();
+            return View(polls.Count);
         }
 
         public IActionResult Error()

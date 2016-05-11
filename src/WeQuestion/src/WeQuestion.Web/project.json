@@ -27,7 +27,7 @@
   "frameworks": {
     "dnx451": {
         "dependencies": {
-            "WeQuestion.Data": "1.0.0-*"
+            "WeQuestion.Domain": "1.0.0-*"
         }
     }
   },

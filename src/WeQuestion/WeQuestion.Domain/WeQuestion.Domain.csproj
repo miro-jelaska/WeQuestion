@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{862CEA4C-39F3-4ECE-A95F-A3683310DACB}</ProjectGuid>
+    <ProjectGuid>{BE7644A1-2C70-4786-933A-31C29011C481}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WeQuestion.Data</RootNamespace>
-    <AssemblyName>WeQuestion.Data</AssemblyName>
+    <RootNamespace>WeQuestion.Domain</RootNamespace>
+    <AssemblyName>WeQuestion.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,14 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\UsersAnswer.cs" />
-    <Compile Include="Entities\AnswerOption.cs" />
-    <Compile Include="Entities\Poll.cs" />
-    <Compile Include="Entities\PollParticipation.cs" />
-    <Compile Include="Entities\ProvisionalUser.cs" />
-    <Compile Include="Entities\Question.cs" />
+    <Compile Include="Dto\Poll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeQuestionDbContext.cs" />
+    <Compile Include="Repository\GetAllPolls.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeQuestion.Data\WeQuestion.Data.csproj">
+      <Project>{862cea4c-39f3-4ece-a95f-a3683310dacb}</Project>
+      <Name>WeQuestion.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

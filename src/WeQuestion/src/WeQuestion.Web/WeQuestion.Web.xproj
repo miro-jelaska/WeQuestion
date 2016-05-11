@@ -20,7 +20,7 @@
     <DnxInvisibleContent Include="package.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WeQuestion.Data\WeQuestion.Data.csproj" />
+    <ProjectReference Include="..\..\WeQuestion.Domain\WeQuestion.Domain.csproj" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
