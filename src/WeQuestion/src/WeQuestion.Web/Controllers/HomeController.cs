@@ -7,12 +7,12 @@ namespace WeQuestion.Web.Controllers
     {
         public IActionResult Index()
         {
-            using (var dbContext = new WeQuestionDbContext())
-            {
-                var newUser = new User() {Name = "Nikola"};
-                dbContext.Users.Add(newUser);
-                dbContext.SaveChanges();
-            }
+            //using (var dbContext = new WeQuestionDbContext())
+            //{
+            //    var newUser = new User() {Name = "Nikola"};
+            //    dbContext.Users.Add(newUser);
+            //    dbContext.SaveChanges();
+            //}
             return View();
         }
 
