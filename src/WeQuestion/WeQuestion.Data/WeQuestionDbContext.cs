@@ -20,7 +20,7 @@ namespace WeQuestion.Data
         public IDbSet<AnswerOption> AnswerOptions { get; set; }
 
 
-        public class DevelopmentDatabaseInitializer : DropCreateDatabaseIfModelChanges<WeQuestionDbContext>
+        public class DevelopmentDatabaseInitializer : DropCreateDatabaseAlways<WeQuestionDbContext>
         {
             public override void InitializeDatabase(WeQuestionDbContext context)
             {

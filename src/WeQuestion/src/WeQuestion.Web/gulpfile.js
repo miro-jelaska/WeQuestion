@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='default' Clean='clean' />
+﻿/// <binding BeforeBuild='default' Clean='clean:dist' />
 "use strict";
 
 var gulp = require("gulp"),
@@ -7,7 +7,9 @@ var gulp = require("gulp"),
     cssmin = require("gulp-cssmin"),
     uglify = require("gulp-uglify"),
     react = require("gulp-react"),
-    addsrc = require("gulp-add-src");
+    addsrc = require("gulp-add-src"),
+    webpack = require("webpack-stream"),
+    babel = require("gulp-babel");
     
 var paths = {
     webroot: "./wwwroot/"
@@ -30,18 +32,23 @@ gulp.task("clean:css", function (cb) {
 });
 
 gulp.task("app", function () {
-    return gulp.src([paths.jsx], { base: "./dist/" })
-        .pipe(react())
-        .pipe(addsrc(paths.js))
-        .pipe(concat(paths.concatAppDest))
-        .pipe(gulp.dest("."));
+    console.log([paths.jsx, paths.js]);
+    return gulp.src([paths.jsx, paths.js])
+        .pipe(babel({
+            presets: ['es2015', 'react']
+        }))
+        .pipe(webpack())
+        //.pipe(react())
+        //.pipe(addsrc())
+        //.pipe(concat(paths.concatAppDest))
+        .pipe(gulp.dest(paths.webroot + "/dist/", {overwrite: true}));
 });
 
 gulp.task("min:app", function () {
     return gulp.src([paths.js], { base: "./dist/" })
-        .pipe(react())
         .pipe(addsrc(paths.js))
-        .pipe(concat(paths.concatMinAppDest))
+        //.pipe(react())
+        //.pipe(concat(paths.concatMinAppDest))
         .pipe(uglify())
         .pipe(gulp.dest("."));
 });
